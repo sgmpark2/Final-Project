@@ -24,28 +24,28 @@ function convert2plan(app)
             end
         
         end
-        % --- Converting to Latitude & Longitude -----------------------
-
-            % Cartesian Origin in Lat/Long [latitude longitude altitude?]
-            origin = [53.315403 -4.032265 0];
-
-            % Retrieving Correct Data:
-            Fx = app.ProcessedData.Fx;
-            Fy = app.ProcessedData.Fy;
-            Fz = app.ProcessedData.Fz;
-
-            % Convert Flight Path to Latitude/Longitude
-            [latitude, longitude] = local2latlon(Fx,Fy,Fz,origin);
-
-            % Retriving Altitude Data
-            altitude = app.ProcessedData.Fz;
-
-            % Specifying capture points
-            isCapture = zeros(height(app.ProcessedData), 1);
-            isCapture(app.CaptureIndices) = 1;
-
-            % Combining into one matrix 
-            app.qgc = [latitude longitude altitude app.ProcessedData.PitchGimbalAngle app.ProcessedData.YawGimbalAngle isCapture];
+        % % --- Converting to Latitude & Longitude -----------------------
+        % 
+        %     % Cartesian Origin in Lat/Long [latitude longitude altitude?]
+        %     origin = [53.315403 -4.032265 0];
+        % 
+        %     % Retrieving Correct Data:
+        %     Fx = app.ProcessedData.Fx;
+        %     Fy = app.ProcessedData.Fy;
+        %     Fz = app.ProcessedData.Fz;
+        % 
+        %     % Convert Flight Path to Latitude/Longitude
+        %     [latitude, longitude] = local2latlon(Fx,Fy,Fz,origin);
+        % 
+        %     % Retriving Altitude Data
+        %     altitude = app.ProcessedData.Fz;
+        % 
+        %     % Specifying capture points
+        %     isCapture = zeros(height(app.ProcessedData), 1);
+        %     isCapture(app.CaptureIndices) = 1;
+        % 
+        %     % Combining into one matrix 
+        %     app.qgc = [latitude longitude altitude app.ProcessedData.PitchGimbalAngle app.ProcessedData.YawGimbalAngle isCapture];
 
             % Only keep coordinates where a photo is to be taken:
             app.qgc(app.qgc(:,6) == 0, :) = [];
