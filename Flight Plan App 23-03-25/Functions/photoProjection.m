@@ -1,4 +1,4 @@
-function [PhotoData] = photoProjection(app)
+function photoProjection(app)
 
         fovH = app.horizontalFOV.Value; % Stores horizontal FOV from user input
         fovV = app.verticalFOV.Value; % Stores vertical FOV from user input
@@ -9,16 +9,12 @@ function [PhotoData] = photoProjection(app)
         Fx = app.ProcessedData.Fx;
         Fy = app.ProcessedData.Fy;
         Fz = app.ProcessedData.Fz;
-        overlap = app.overlap.Value;
         Displacement = app.ProcessedData.Displacement;
-        pathLength = app.stats.pathLength;
         numPhotos = app.stats.photoNum;
-
         numPts = height(app.ProcessedData.Gx);
 
         captureIndices = round(linspace(1,numPts,numPhotos));
-        
-        app.CaptureIndices = captureIndices;
+        app.captureIndices = captureIndices;
 
         cla(app.UIAxes);
         hold(app.UIAxes,'on');

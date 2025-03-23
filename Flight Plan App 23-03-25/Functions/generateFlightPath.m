@@ -58,7 +58,6 @@ function [flightPlan, stats] = generateFlightPath(~, groundCoords, biasVal, stra
     stats.pathLength = pathLength;
     stats.flightTime = flightTime;
 
-
     stats.mean_angle = mean(angles); % Calculates mean drone angle offset 
     stats.std_angle = std(angles); % Calculates standard deviation of drone angle offset
     stats.mean_displacement = mean(displacements); % Calculates mean drone displacement

@@ -3,7 +3,7 @@ function [latlon] = convert2latlon(app)
 
     % Cartesian Origin in Lat/Long [latitude longitude altitude]
         % This needs fine-tuning to be completely correct
-    origin = [53.315403 -4.032265 0];
+    origin = [53.315298 -4.032796 0];
     
     % Retrieving Correct Data:
     x = app.ProcessedData.Fx;
@@ -16,9 +16,8 @@ function [latlon] = convert2latlon(app)
     % Retriving Altitude Data
     altitude = app.ProcessedData.Fz;
     
-    % Specifying capture points
+    % Placeholder Capture Points Column
     isCapture = zeros(height(app.ProcessedData), 1);
-    isCapture(app.CaptureIndices) = 1;
     
     % Combining into one matrix 
     latlon = [latitude longitude altitude app.ProcessedData.PitchGimbalAngle app.ProcessedData.YawGimbalAngle isCapture];
