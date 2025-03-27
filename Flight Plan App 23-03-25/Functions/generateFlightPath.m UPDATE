@@ -1,1 +1,13 @@
 %% Edit to generateFlightPath.m
+% Create another slider "OffsetDirection"
+OffsetDirection matlab.ui.control.Slider;
+app.OffsetDirection = uislider(app.UIFigure, ... % Create OffsetDirection slider
+                'Position', [INSERT POSITION VALUES], ... % Set slider position
+                'Limits', [0 360], 'Value', 0); % Set limits from 0 to 360 and default value to 0
+% Define output of slider
+OffsetDirection = app.OffsetDirection.Value;
+% Redefine dirVec as per user input
+dirVec = [cos(OffsetDirection),sin(OffsetDirection)];
+% Store OffsetDirection as a stat to be displayed
+stats.OffsetDirection = OffsetDirection;
+% Display stats.OffsetDirection by adding it to the existion command
