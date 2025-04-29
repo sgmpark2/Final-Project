@@ -68,7 +68,7 @@ takeoffItem.autoContinue = true;
 takeoffItem.command = 22; % MAV_CMD_NAV_TAKEOFF
 takeoffItem.doJumpId = 1; % First command
 takeoffItem.frame = 3; % Altitude relative to launch
-takeoffItem.params = [0, 0, 0, 0, homeLat, homeLon, 5]; % 5m takeoff altitude
+takeoffItem.params = [0, 0, 0, 0, homeLat, homeLon, 2];
 takeoffItem.type = 'SimpleItem';
 
 % Insert takeoff command at the beginning of the mission
@@ -93,7 +93,7 @@ for i = 1:size(data, 1)
     waypointItem.command = 16;
     waypointItem.doJumpId = counter;
     waypointItem.frame = 0; % Altitudes are relative to AMSL
-    waypointItem.params = [0, 0, 0, NaN, lat, lon, alt]; % [hold time, acceptance radius, stop or pass through, yaw, lat, lon, alt]
+    waypointItem.params = [0, 0, 0, NaN, lat, lon, alt]; %                  [hold time, acceptance radius, stop or pass through, yaw, lat, lon, alt]
     waypointItem.type = 'SimpleItem';
     
     counter = counter + 1;
@@ -107,7 +107,7 @@ for i = 1:size(data, 1)
     cameraItem.command = 530;
     cameraItem.doJumpId = counter; % Unique ID
     cameraItem.frame = 2; % MAV_FRAME_MISSION
-    cameraItem.params = [0, 0, NaN, NaN, NaN, NaN, NaN]; % [cam mode (0=auto, 1=photo, 2=video), 0...]
+    cameraItem.params = [1, 0, NaN, NaN, NaN, NaN, NaN]; % [cam mode (0=auto, 1=photo, 2=video), 0...]
     cameraItem.type = 'SimpleItem';
 
     counter = counter + 1;

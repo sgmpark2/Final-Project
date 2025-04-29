@@ -13,8 +13,13 @@ function plotGeo(app)
     latitudes = app.latlon(:,1);
     longitudes = app.latlon(:,2);
 
+    origin_x = app.origin(1);
+    origin_y = app.origin(2);
+
     % Plot the flight plan on the terrain map
     geoplot(app.geoAxesPlot,latitudes, longitudes, 'r-', 'LineWidth', 2);
+    hold(app.geoAxesPlot,"on")
+    %geoscatter(app.geoAxesPlot,origin_x,origin_y,36,"red","filled");
 
     % Hold on to add other elements if needed
     hold(app.geoAxesPlot, 'on');

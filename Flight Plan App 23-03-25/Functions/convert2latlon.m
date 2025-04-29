@@ -1,9 +1,10 @@
-function [latlon] = convert2latlon(app)
+function [latlon,origin] = convert2latlon(app)
 % Convert local coordinates into latitude and longitude
 
     % Cartesian Origin in Lat/Long [latitude longitude altitude]
         % This needs fine-tuning to be completely correct
     origin = [53.315298 -4.032796 0];
+    origin = [53.31529 -4.033 0];
     
     % Retrieving Correct Data:
     x = app.ProcessedData.Fx;
